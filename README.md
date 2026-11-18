@@ -32,11 +32,22 @@ Every package also ships a `.Traced` twin (`Ranvier.Keyboard.Traced`, `Ranvier.K
   - Packs `LogicalKey` (4-bit kind tag + 21-bit Unicode `Rune` / enum payload) and 5-bit `KeyModifiers` (`Ctrl`, `Alt`, `Shift`, `Meta`, `AltGraph`) into a non-negative 30-bit `int32` (`OverflowText` is `null` for all single-scalar, function, navigation, editing, modifier, dead, and IME keys).
   - `KeyChord.isPlainChar 'G' chord`, `KeyChord.isPlainChar '*' chord`, `KeyChord.isPlainChar 'j' chord`, and `KeyChord.isPlainChar ' ' chord` execute as a single masked 32-bit integer comparison.
 
+## Documentation
+
+- [Overview](docs/content/index.md)
+- [Installation & packages](docs/content/guide/introduction.md) — choosing between `Ranvier.Keyboard`, `Ranvier.Keyboard.Dom`, and `Fable.Ranvier.Keyboard.Dom`
+- [Packed chords & keymaps](docs/content/guide/chords-and-keymaps.md) — 30-bit `KeyChord` layout, normalization, O(1) predicates, active patterns, and Vim chord sequence parsing
+- [Physical, logical & dead keys](docs/content/guide/physical-and-logical-keys.md) — W3C `PhysicalKeyCode`, USB HID `0x07`, ISO/IEC 9995-1 coordinates, `LogicalKey`, dead keys, and RFC 1345 digraphs
+- [Unicode, C0 & graphemes](docs/content/guide/unicode-and-graphemes.md) — ECMA-48 `C0Control`, `UnicodeChar` classification, and UAX #29 `Grapheme` stepping
+- [DOM & Ranvier.View adapter](docs/content/guide/dom-and-view-integration.md) — `Ranvier.Keyboard.Dom.KeyboardEvent` across native `Ranvier.View.WebCore` and browser `fickl`
+- [Contributing & releases](CONTRIBUTOR.md)
+
 ## Development
 
 ```bash
 dotnet fsi --exec build.fsx -- dev setup
 dotnet fsi --exec build.fsx -- ci
+dotnet fsi --exec build.fsx -- docs
 ```
 
-`dev local` switches `Ranvier.Dom` / `Fable.Ranvier.Dom` to project references against a sibling `../Ranvier` checkout; `dev packages` returns to the published NuGet packages pinned in `Directory.Build.props`. Individual CI shards run via `dotnet fsi --exec build.fsx -- test --group dotnet`, `fable`, or `aot`.
+`dev local` switches `Ranvier.Dom` / `Fable.Ranvier.Dom` to project references against a sibling `../Ranvier` checkout; `dev packages` returns to the published NuGet packages pinned in `Directory.Build.props`. Individual CI shards run via `dotnet fsi --exec build.fsx -- test --group dotnet`, `fable`, or `aot`. Pass `--watch` to `docs` to serve live documentation previews locally.
