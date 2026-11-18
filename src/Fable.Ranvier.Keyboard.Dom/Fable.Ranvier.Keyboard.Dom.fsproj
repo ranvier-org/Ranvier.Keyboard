@@ -41,7 +41,6 @@
         <PackagePath>fable/%(_PackageFiles.Filename)%(_PackageFiles.Extension)</PackagePath>
       </_PackageFiles>
     </ItemGroup>
-    <WriteLinesToFile File="$(NuspecOutputPath)fable/$(MSBuildProjectFile)" Overwrite="true"
-                      Lines="&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;;  &lt;PropertyGroup&gt;;    &lt;TargetFramework&gt;netstandard2.1&lt;/TargetFramework&gt;;    &lt;AssemblyName&gt;Ranvier.Keyboard.Dom&lt;/AssemblyName&gt;;  &lt;/PropertyGroup&gt;;  &lt;ItemGroup&gt;;    &lt;Compile Include=&quot;KeyboardEvent.fs&quot; /&gt;;  &lt;/ItemGroup&gt;;&lt;/Project&gt;" />
+    <WriteLinesToFile File="$(NuspecOutputPath)fable/$(MSBuildProjectFile)" Overwrite="true" Lines="&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;;  &lt;PropertyGroup&gt;;    &lt;TargetFramework&gt;netstandard2.1&lt;/TargetFramework&gt;;    &lt;AssemblyName&gt;Ranvier.Keyboard.Dom&lt;/AssemblyName&gt;;  &lt;/PropertyGroup&gt;;  &lt;ItemGroup&gt;;    &lt;Compile Include=&quot;KeyboardEvent.fs&quot; /&gt;;  &lt;/ItemGroup&gt;;&lt;/Project&gt;" />
   </Target>
 </Project>
