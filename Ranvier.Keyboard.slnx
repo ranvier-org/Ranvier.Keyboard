@@ -1,0 +1,24 @@
+<Solution>
+  <Folder Name="/.environment/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path=".config/dotnet-tools.json" />
+    <File Path="global.json" />
+    <File Path="nuget.config" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="README.md" />
+    <File Path="CONTRIBUTOR.md" />
+  </Folder>
+  <Folder Name="/Build/">
+    <File Path="build.fsx" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Ranvier.Keyboard/Ranvier.Keyboard.fsproj" />
+    <Project Path="src/Ranvier.Keyboard.Dom/Ranvier.Keyboard.Dom.fsproj" />
+    <Project Path="src/Fable.Ranvier.Keyboard.Dom/Fable.Ranvier.Keyboard.Dom.fsproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Ranvier.Keyboard.Tests/Ranvier.Keyboard.Tests.fsproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <!-- Cross-target checks and raw JS KeyboardEvent checks compiled with Fable (fickl) and run under Node. -->
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <IsPackable>false</IsPackable>
+        <IsExcludedFromRootBuild>true</IsExcludedFromRootBuild>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="../../tests/Ranvier.Keyboard.Smoke/Checks.fs" Link="Checks.fs" />
+        <Compile Include="Main.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Ranvier.Keyboard\Ranvier.Keyboard.fsproj" />
+        <ProjectReference Include="..\..\src\Fable.Ranvier.Keyboard.Dom\Fable.Ranvier.Keyboard.Dom.fsproj" />
+        <PackageReference Include="Fable.Core" Version="5.3.0" />
+    </ItemGroup>
+
+</Project>

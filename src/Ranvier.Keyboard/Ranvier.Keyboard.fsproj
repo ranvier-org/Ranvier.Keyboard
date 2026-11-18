@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net8.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Tailcalls>false</Tailcalls>
+    <RootNamespace>Ranvier.Keyboard</RootNamespace>
+    <AssemblyName>Ranvier.Keyboard</AssemblyName>
+    <PackageId>Ranvier.Keyboard</PackageId>
+    <PackageId Condition="'$(RanvierTrace)' == 'true'">Ranvier.Keyboard.Traced</PackageId>
+    <Title>Ranvier.Keyboard</Title>
+    <Description>DOM-free keyboard primitives for .NET and Fable (fickl): W3C KeyboardEvent.code / ISO 9995-1 / USB HID physical keys, W3C KeyboardEvent.key logical keys, ISO 9995-3 dead-key composition, RFC 1345 digraphs, ECMA-48 C0 control codes, Unicode UAX #29 graphemes, and 30-bit packed KeyChord / KeyPress with SIMD acceleration. Use this package alone for modal engines, keymaps, .fsx configs, IPC, SDL/HID input, or tests; add Ranvier.Keyboard.Dom (.NET) or Fable.Ranvier.Keyboard.Dom (browser fickl) when reading Ranvier.Dom.KeyboardEvent.</Description>
+    <Description Condition="'$(RanvierTrace)' == 'true'">The traced build of Ranvier.Keyboard: DOM-free keyboard primitives, SIMD W3C/ISO/HID codecs, Unicode UAX #29 graphemes, dead keys, RFC 1345 digraphs, and packed KeyChord / KeyPress for .NET and Fable.</Description>
+    <PackageTags>keyboard;keychord;vim;w3c;iso9995;hid;unicode;grapheme;simd;fsharp</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version>0.1.0</Version>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <RanvierAotClean>true</RanvierAotClean>
+    <RanvierExactSiblingVersions>true</RanvierExactSiblingVersions>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <WarnOn>$(WarnOn);3390</WarnOn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="IsoAndW3cKeys.fs" />
+    <Compile Include="UnicodeAndControl.fs" />
+    <Compile Include="DeadKeysAndDigraphs.fs" />
+    <Compile Include="KeyChord.fs" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="licenses/Ranvier.Keyboard/" />
+    <None Include="README.md" Pack="true" PackagePath="/" />
+    <None Include="../../brand/icon/ranvier-icon.png" Pack="true" PackagePath="/" Visible="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Core" Version="5.3.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(RanvierTrace)' == 'true'">
+    <AssemblyMetadata Include="RanvierTrace" Value="true" />
+  </ItemGroup>
+</Project>

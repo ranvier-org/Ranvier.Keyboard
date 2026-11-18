@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <!--
+    A NativeAOT app over Ranvier.Keyboard, Ranvier.Keyboard.Dom, and Ranvier.Dom.
+    `dotnet publish -c Release -r <rid>` fails on any IL2xxx/IL3xxx warning: the assemblies are rooted, so ILC
+    analyses their whole public surface. The published binary exits non-zero when a check fails.
+    -->
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <IsPackable>false</IsPackable>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <PublishAot>true</PublishAot>
+        <TrimmerSingleWarn>false</TrimmerSingleWarn>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <OtherFlags>$(OtherFlags) --reflectionfree</OtherFlags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="../Ranvier.Keyboard.Smoke/Checks.fs" Link="Checks.fs" />
+        <Compile Include="Program.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="../../src/Ranvier.Keyboard/Ranvier.Keyboard.fsproj" />
+        <ProjectReference Include="../../src/Ranvier.Keyboard.Dom/Ranvier.Keyboard.Dom.fsproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <TrimmerRootAssembly Include="Ranvier.Keyboard" />
+        <TrimmerRootAssembly Include="Ranvier.Keyboard.Dom" />
+    </ItemGroup>
+
+</Project>

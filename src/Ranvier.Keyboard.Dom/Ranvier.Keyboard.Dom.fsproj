@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net8.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Tailcalls>false</Tailcalls>
+    <RootNamespace>Ranvier.Keyboard.Dom</RootNamespace>
+    <AssemblyName>Ranvier.Keyboard.Dom</AssemblyName>
+    <PackageId>Ranvier.Keyboard.Dom</PackageId>
+    <PackageId Condition="'$(RanvierTrace)' == 'true'">Ranvier.Keyboard.Dom.Traced</PackageId>
+    <Title>Ranvier.Keyboard.Dom</Title>
+    <Description>Native .NET DOM adapter bridging Ranvier.Dom.KeyboardEvent to Ranvier.Keyboard (PhysicalKeyCode, LogicalKey, KeyModifiers with lazy AltGraph guard, KeyChord, KeyPress, and isEscape). Use on native .NET / Ranvier.View.WebCore hosts; use Fable.Ranvier.Keyboard.Dom in browser fickl apps, or Ranvier.Keyboard alone when no DOM dependency is needed.</Description>
+    <Description Condition="'$(RanvierTrace)' == 'true'">The traced build of Ranvier.Keyboard.Dom: native .NET Ranvier.Dom.KeyboardEvent adapter for Ranvier.Keyboard. Depends on Ranvier.Keyboard.Traced and Ranvier.Dom.Traced.</Description>
+    <PackageTags>keyboard;dom;events;keychord;w3c;ranvier;fsharp</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version>0.1.0</Version>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <RanvierAotClean>true</RanvierAotClean>
+    <RanvierExactSiblingVersions>true</RanvierExactSiblingVersions>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <WarnOn>$(WarnOn);3390</WarnOn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="KeyboardEvent.fs" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="licenses/Ranvier.Keyboard/" />
+    <None Include="README.md" Pack="true" PackagePath="/" />
+    <None Include="../../brand/icon/ranvier-icon.png" Pack="true" PackagePath="/" Visible="false" />
+    <ProjectReference Include="../Ranvier.Keyboard/Ranvier.Keyboard.fsproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(UseLocalRanvier)' == 'true'">
+    <ProjectReference Include="$(RanvierRoot)/src/Ranvier.Dom/Ranvier.Dom.fsproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(UseLocalRanvier)' != 'true'">
+    <PackageReference Include="Ranvier.Dom$(RanvierPackageSuffix)" Version="$(RanvierDomVersion)" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(RanvierTrace)' == 'true'">
+    <AssemblyMetadata Include="RanvierTrace" Value="true" />
+  </ItemGroup>
+</Project>
