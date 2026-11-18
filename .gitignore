@@ -11,6 +11,8 @@ riderModule.iml
 # docs output (fsdocs / nacara)
 /output/
 /.fsdocs/
+/.nacara/
+/docs/.nacara/
 /tmp/
 /docs/output/
 node_modules/

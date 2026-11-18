@@ -39,6 +39,8 @@ module Spec =
         -- "**/bin/**"
         -- "**/dist/**"
         -- "**/artifacts/**"
+        -- "**/docs/output/**"
+        -- "**/.nacara/**"
         -- "**/node_modules/**"
         -- "**/fable_modules/**"
         |> Seq.toList
@@ -277,6 +279,19 @@ module Stage =
                 ))
         }
 
+    let docs =
+        input {
+            let! watch = Baked.Common.watch
+
+            return
+                stage "documentation" {
+                    run (
+                        cmd $"dotnet run --project docs/docs.fsproj --"
+                        |> Cmd.arg (if watch then "watch" else "build")
+                    )
+                }
+        }
+
 exit
 <| rootCommand fsi.CommandLineArgs[1..] {
     description "Ranvier.Keyboard development, validation and releases"
@@ -335,6 +350,11 @@ exit
     command "publish" {
         description "Validate and publish (--dry-publish to skip upload)"
         Command.pipeline { Stage.restore; Stage.build; Stage.allTests; Stage.pack; Stage.publish }
+    }
+
+    command "docs" {
+        description "Build documentation (--watch to serve it)"
+        Command.pipeline { Stage.restore; Stage.docs }
     }
 
     command "bump" {
