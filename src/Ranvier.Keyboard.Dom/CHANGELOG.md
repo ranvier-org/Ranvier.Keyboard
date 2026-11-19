@@ -1,6 +1,7 @@
 ---
 last_commit_released: 81101caf84001b2a6d5115f3f49d405d0cbf7c72
 include:
+  - ../Ranvier.Keyboard/
   - ../Fable.Ranvier.Keyboard.Dom/
   - ../../Directory.Build.props
 depends_on:
