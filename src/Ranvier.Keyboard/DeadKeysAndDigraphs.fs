@@ -287,22 +287,37 @@ type KeyModifiers =
 [<RequireQualifiedAccess>]
 module KeyModifiers =
 
+    [<Literal>]
+    let internal CtrlMask = 1
+
+    [<Literal>]
+    let internal AltMask = 2
+
+    [<Literal>]
+    let internal ShiftMask = 4
+
+    [<Literal>]
+    let internal MetaMask = 8
+
+    [<Literal>]
+    let internal AltGraphMask = 16
+
     /// <summary>Packs KeyModifiers into a 5-bit integer in 0..31.</summary>
     let inline toBits (m: KeyModifiers) : int =
-        (if m.Ctrl then 1 else 0)
-        ||| (if m.Alt then 2 else 0)
-        ||| (if m.Shift then 4 else 0)
-        ||| (if m.Meta then 8 else 0)
-        ||| (if m.AltGraph then 16 else 0)
+        (if m.Ctrl then CtrlMask else 0)
+        ||| (if m.Alt then AltMask else 0)
+        ||| (if m.Shift then ShiftMask else 0)
+        ||| (if m.Meta then MetaMask else 0)
+        ||| (if m.AltGraph then AltGraphMask else 0)
 
     /// <summary>Unpacks a 5-bit integer in 0..31 into KeyModifiers.</summary>
     let inline ofBits (bits: int) : KeyModifiers =
         {
-            Ctrl = (bits &&& 1) <> 0
-            Alt = (bits &&& 2) <> 0
-            Shift = (bits &&& 4) <> 0
-            Meta = (bits &&& 8) <> 0
-            AltGraph = (bits &&& 16) <> 0
+            Ctrl = (bits &&& CtrlMask) <> 0
+            Alt = (bits &&& AltMask) <> 0
+            Shift = (bits &&& ShiftMask) <> 0
+            Meta = (bits &&& MetaMask) <> 0
+            AltGraph = (bits &&& AltGraphMask) <> 0
         }
 
 /// <summary>LogicalKey conversions, SIMD parsers, and ISO/IEC 9995-3 AltGraph normalization.</summary>

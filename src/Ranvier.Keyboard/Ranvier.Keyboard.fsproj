@@ -24,6 +24,7 @@
     <Compile Include="UnicodeAndControl.fs" />
     <Compile Include="DeadKeysAndDigraphs.fs" />
     <Compile Include="KeyChord.fs" />
+    <Compile Include="ChordBuilder.fs" />
     <None Include="../../LICENSE" Pack="true" PackagePath="licenses/Ranvier.Keyboard/" />
     <None Include="README.md" Pack="true" PackagePath="/" />
     <None Include="../../brand/icon/ranvier-icon.png" Pack="true" PackagePath="/" Visible="false" />

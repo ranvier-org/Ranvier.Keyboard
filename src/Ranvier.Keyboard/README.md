@@ -22,5 +22,15 @@ All types live in `namespace Ranvier.Keyboard`:
 
 ## When to Use `Ranvier.Keyboard` vs `Ranvier.Keyboard.Dom` / `Fable.Ranvier.Keyboard.Dom`
 
+Declare shortcuts with typed keys. Modifiers may appear in any order before the final `key`.
+A sequence of strokes keeps its order in an ordinary F# list.
+
+```fsharp
+open Ranvier.Keyboard
+
+let extendLeft = chord { ctrl; shift; key (Navigation ArrowLeft) }
+let sequence = [ chord { key (FunctionKey 5) }; chord { key (Whitespace Enter) } ]
+```
+
 - **Use `Ranvier.Keyboard` alone** (on `.NET` or `fickl`) when your project does **not** directly touch `Ranvier.Dom.KeyboardEvent` — for example: modal editing engines, keymap registries, `.fsx` configuration scripts, SDL / USB HID native input loops, IPC protocols, CLI/TUI apps, or unit tests. It ships its F# sources for `fickl` directly inside the `.nupkg` and carries no DOM package dependency.
 - **Add `Ranvier.Keyboard.Dom`** on native `.NET` / `Ranvier.View.WebCore` hosts, or **`Fable.Ranvier.Keyboard.Dom`** in browser `fickl` apps, when you want to decode `Ranvier.Dom.KeyboardEvent` instances via `Ranvier.Keyboard.Dom.KeyboardEvent.{toKeyChord, toKeyPress, physicalCode, logicalKey, modifiers, isEscape}`.
