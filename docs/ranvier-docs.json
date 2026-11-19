@@ -1,24 +1,39 @@
 {
   "version": 1,
   "title": "Keyboard",
-  "description": "Standards-typed keyboard primitives, 30-bit packed key chords, Unicode UAX #29 graphemes, and zero-cost DOM adapters for .NET and Fable",
+  "description": "Standards-typed keyboard primitives, 30-bit packed key chords, Unicode UAX #29 graphemes, and zero-cost DOM adapters for .NET and Fable.",
   "content": "docs/content",
   "index": "index.md",
   "sections": [
     {
-      "title": "Start",
-      "pages": [
+      "title": "Getting started",
+      "items": [
         "index.md",
-        { "path": "guide/introduction.md", "title": "Installation & packages" }
+        {
+          "path": "guide/introduction.md",
+          "title": "Installation & packages"
+        }
       ]
     },
     {
-      "title": "Guide & API",
-      "pages": [
-        { "path": "guide/chords-and-keymaps.md", "title": "Packed chords & keymaps" },
-        { "path": "guide/physical-and-logical-keys.md", "title": "Physical, logical & dead keys" },
-        { "path": "guide/unicode-and-graphemes.md", "title": "Unicode, C0 & graphemes" },
-        { "path": "guide/dom-and-view-integration.md", "title": "DOM & Ranvier.View adapter" }
+      "title": "Chords, keys & adapters",
+      "items": [
+        {
+          "path": "guide/chords-and-keymaps.md",
+          "title": "Packed chords & keymaps"
+        },
+        {
+          "path": "guide/physical-and-logical-keys.md",
+          "title": "Physical, logical & dead keys"
+        },
+        {
+          "path": "guide/unicode-and-graphemes.md",
+          "title": "Unicode, C0 & graphemes"
+        },
+        {
+          "path": "guide/dom-and-view-integration.md",
+          "title": "DOM & Ranvier.View adapter"
+        }
       ]
     }
   ]
