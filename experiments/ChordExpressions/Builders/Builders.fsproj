@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><IsPackable>false</IsPackable></PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Builders.fs" />
+    <ProjectReference Condition="'$(KeyboardPackageVersion)' == ''" Include="../../../src/Ranvier.Keyboard/Ranvier.Keyboard.fsproj" />
+    <PackageReference Condition="'$(KeyboardPackageVersion)' != ''" Include="Ranvier.Keyboard" Version="[$(KeyboardPackageVersion)]" />
+  </ItemGroup>
+</Project>
