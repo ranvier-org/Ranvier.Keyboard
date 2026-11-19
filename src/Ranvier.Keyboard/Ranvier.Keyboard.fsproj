@@ -12,7 +12,7 @@
     <Description Condition="'$(RanvierTrace)' == 'true'">The traced build of Ranvier.Keyboard: DOM-free keyboard primitives, SIMD W3C/ISO/HID codecs, Unicode UAX #29 graphemes, dead keys, RFC 1345 digraphs, and packed KeyChord / KeyPress for .NET and Fable.</Description>
     <PackageTags>keyboard;keychord;vim;w3c;iso9995;hid;unicode;grapheme;simd;fsharp</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <RanvierAotClean>true</RanvierAotClean>
     <RanvierExactSiblingVersions>true</RanvierExactSiblingVersions>
