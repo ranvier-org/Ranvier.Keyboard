@@ -1,5 +1,5 @@
 ---
-last_commit_released: 81101caf84001b2a6d5115f3f49d405d0cbf7c72
+last_commit_released: f4b1b41a4dec908b1a5a3c7825e1b603832fbe8b
 include:
   - ../Ranvier.Keyboard/
   - ../Fable.Ranvier.Keyboard.Dom/
@@ -18,6 +18,18 @@ updaters:
 # Changelog
 
 This changelog is generated from conventional commits by [EasyBuild.ShipIt](https://github.com/easybuild-org/EasyBuild.ShipIt).
+
+## 0.2.0 - 2026-11-19
+
+### 🚀 Features
+
+* *(keyboard)* Build typed chords with inline modifier operations ([68e3658](https://github.com/ranvier-org/Ranvier.Keyboard/commit/68e3658456de4867f36611c27ec6564d6e1c85a9))
+
+### 🔗 Dependencies
+
+* `src/Ranvier.Keyboard` updated to 0.2.0
+
+<strong><small>[View changes on Github](https://github.com/ranvier-org/Ranvier.Keyboard/compare/81101caf84001b2a6d5115f3f49d405d0cbf7c72..f4b1b41a4dec908b1a5a3c7825e1b603832fbe8b)</small></strong>
 
 ## 0.1.0 - 2026-11-18
 
