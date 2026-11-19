@@ -1,10 +1,8 @@
 ---
 title: Ranvier.Keyboard
 description: Standards-typed keyboard primitives, 30-bit packed key chords, Unicode UAX #29 graphemes, and zero-cost DOM adapters for .NET and Fable
-layout: bare
+toc: false
 ---
-
-# Ranvier.Keyboard
 
 Standards-typed, SIMD-accelerated keyboard primitives and `Ranvier.Dom.KeyboardEvent` adapters for .NET (`net10.0`, `net8.0`, NativeAOT) and Fable (`fickl`).
 
