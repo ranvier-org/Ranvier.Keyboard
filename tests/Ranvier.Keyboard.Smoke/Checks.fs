@@ -122,6 +122,34 @@ let run () : (string * bool) list =
         && DeadKey.compose Grave (Rune ' ') = "`"
         && Rfc1345Digraph.lookup '-' '>' = ValueSome (Rune 0x2192)
         && Rfc1345Digraph.lookup 'l' '*' = ValueSome (Rune 'λ')
+        "Typed chords normalize modifiers independently of order and repetition",
+        (chord {
+            shift
+            ctrl
+            shift
+            key (Navigation ArrowLeft)
+        }
+            =
+            chord {
+                ctrl
+                shift
+                key (Navigation ArrowLeft)
+            })
+        && chord { key (Character (Rune 0x1F642)) } = KeyChord.ofRune (Rune 0x1F642)
+        && (chord {
+                alt
+                meta
+                altGraph
+                key (Character (Rune '€'))
+            }
+                =
+                KeyChord.ofLogical
+                    (Character (Rune '€'))
+                    { KeyModifiers.None with
+                        Alt = true
+                        Meta = true
+                        AltGraph = true
+                    })
         "LogicalKey parses F1..F24, aliases, and astral emoji",
         LogicalKey.ofW3cKey "F12" = FunctionKey 12
         && LogicalKey.ofW3cKey "f24" = FunctionKey 24
