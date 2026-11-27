@@ -1,5 +1,5 @@
 ---
-last_commit_released: f4b1b41a4dec908b1a5a3c7825e1b603832fbe8b
+last_commit_released: a1c10f51f4aa36081bee038d0d88e1d9c82f59f7
 include:
   - ../Ranvier.Keyboard/
   - ../Fable.Ranvier.Keyboard.Dom/
@@ -18,6 +18,18 @@ updaters:
 # Changelog
 
 This changelog is generated from conventional commits by [EasyBuild.ShipIt](https://github.com/easybuild-org/EasyBuild.ShipIt).
+
+## 0.2.1 - 2026-11-27
+
+### 🐞 Bug Fixes
+
+* *(pack)* Remove Fable.Core package dependency from Ranvier.Keyboard (#13) ([a1c10f5](https://github.com/ranvier-org/Ranvier.Keyboard/commit/a1c10f51f4aa36081bee038d0d88e1d9c82f59f7))
+
+### 🔗 Dependencies
+
+* `src/Ranvier.Keyboard` updated to 0.2.1
+
+<strong><small>[View changes on Github](https://github.com/ranvier-org/Ranvier.Keyboard/compare/f4b1b41a4dec908b1a5a3c7825e1b603832fbe8b..a1c10f51f4aa36081bee038d0d88e1d9c82f59f7)</small></strong>
 
 ## 0.2.0 - 2026-11-19
 

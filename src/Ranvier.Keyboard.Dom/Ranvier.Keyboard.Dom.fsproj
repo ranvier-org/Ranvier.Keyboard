@@ -12,7 +12,7 @@
     <Description Condition="'$(RanvierTrace)' == 'true'">The traced build of Ranvier.Keyboard.Dom: native .NET Ranvier.Dom.KeyboardEvent adapter for Ranvier.Keyboard. Depends on Ranvier.Keyboard.Traced and Ranvier.Dom.Traced.</Description>
     <PackageTags>keyboard;dom;events;keychord;w3c;ranvier;fsharp</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Version>0.2.0</Version>
+    <Version>0.2.1</Version>
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <RanvierAotClean>true</RanvierAotClean>
     <RanvierExactSiblingVersions>true</RanvierExactSiblingVersions>
